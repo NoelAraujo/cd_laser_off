@@ -1,0 +1,18 @@
+project:
+  type: book
+
+book:
+  title: "Subradiant CBS"
+  author: "Some People"
+  date: "8/18/2022"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
