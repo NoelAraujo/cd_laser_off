@@ -1,5 +1,3 @@
-# Preface {.unnumbered}
+# Goal {.unnumbered}
 
-This is a Quarto book.
-
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+This webpage reproduces some preliminary results of my research, for my own learning experience, and maybe future students will benefit from this notes too.

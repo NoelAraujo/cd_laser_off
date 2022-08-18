@@ -1,0 +1,11 @@
+# General Expressions
+
+We will follow @Rouabah:14, but our analysis will be limited only for the **Scalar Model**.
+
+Given an essemble of atoms at position $\textbf{r}_j$, pumped by a constant inicident field $E_{in}(\mathbf{r})$, the radiation field, $E(\mathbf{r})$, measured at distance $\mathbf{r}$ is
+
+$$
+E(\mathbf{r}) = \kappa (\delta) \sum_{j=1}^N G(|\mathbf{r}-\mathbf{r}_j|)\left [ E_{in}(\mathbf{r}) +  \kappa (\delta) \sum_{j=1}^N G(|\mathbf{r}-\mathbf{r}_j|) E_{in}(\mathbf{r}_m) \right ]
+$$
+
+where $\kappa (\delta) = 1/(2i\delta - 1)$ and $\delta = \Delta/\Gamma$. This equation is recursive because we are working with multiple-scattering events.

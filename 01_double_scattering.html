@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Subradiant CBS - 1&nbsp; Introduction</title>
+<title>Subradiant CBS - 1&nbsp; General Expressions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -49,7 +49,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
+<link href="./references.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -80,6 +80,7 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -89,7 +90,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">General Expressions</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -114,17 +115,12 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Goal</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./01_double_scattering.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">General Expressions</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -144,7 +140,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">General Expressions</span></h1>
 </div>
 
 
@@ -158,13 +154,17 @@ div.csl-indent {
 
 </header>
 
-<p>This is a book created from markdown and executable code.</p>
-<p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
+<p>We will follow <span class="citation" data-cites="Rouabah:14">Rouabah et al. (<a href="references.html#ref-Rouabah:14" role="doc-biblioref">2014</a>)</span>, but our analysis will be limited only for the <strong>Scalar Model</strong>.</p>
+<p>Given an essemble of atoms at position <span class="math inline">\(\textbf{r}_j\)</span>, pumped by a constant inicident field <span class="math inline">\(E_{in}(\mathbf{r})\)</span>, the radiation field, <span class="math inline">\(E(\mathbf{r})\)</span>, measured at distance <span class="math inline">\(\mathbf{r}\)</span> is</p>
+<p><span class="math display">\[
+E(\mathbf{r}) = \kappa (\delta) \sum_{j=1}^N G(|\mathbf{r}-\mathbf{r}_j|)\left [ E_{in}(\mathbf{r}) +  \kappa (\delta) \sum_{j=1}^N G(|\mathbf{r}-\mathbf{r}_j|) E_{in}(\mathbf{r}_m) \right ]
+\]</span></p>
+<p>where <span class="math inline">\(\kappa (\delta) = 1/(2i\delta - 1)\)</span> and <span class="math inline">\(\delta = \Delta/\Gamma\)</span>. This equation is recursive because we are working with multiple-scattering events.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-knuth84" class="csl-entry" role="doc-biblioentry">
-Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+<div id="ref-Rouabah:14" class="csl-entry" role="doc-biblioentry">
+Rouabah, Mohamed-Taha, Marina Samoylova, Romain Bachelard, Philippe W. Courteille, Robin Kaiser, and Nicola Piovella. 2014. <span>“Coherence Effects in Scattering Order Expansion of Light by Atomic Clouds.”</span> <em>J. Opt. Soc. Am. A</em> 31 (5): 1031–39. <a href="https://doi.org/10.1364/JOSAA.31.001031">https://doi.org/10.1364/JOSAA.31.001031</a>.
 </div>
 </div>
 
@@ -270,12 +270,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Goal</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
