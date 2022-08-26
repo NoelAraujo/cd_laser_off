@@ -1,0 +1,142 @@
+# Two-Atom Approximation
+
+We consider only atoms $\mathbf{r}_1, \mathbf{r}_2$, and our first goal is to compute the time evolution of the system.
+
+$$
+    \begin{alignat*}{4}
+    \frac{db_1}{dt}&= -(\Gamma /2) G_{12}b_2\\
+    \frac{db_2}{dt}&= -(\Gamma /2) G_{21}b_2\\
+    \end{alignat*}
+$$
+
+To solve the system we do a varible substitution:
+
+$$
+    \begin{alignat*}{4}
+    x &= b_1 + b_2\\
+    y &= b_1 - b_2\\
+    \end{alignat*}
+$$
+
+and using the fact that  $G_{12} = G_{21}$, we begin our manipulation:
+
+- For $x$:
+$$
+    \begin{alignat*}{4}
+    \frac{db_1}{dt} + \frac{db_2}{dt}&= -(\Gamma /2) G_{12}b_2 + -(\Gamma /2) G_{12}b_1\\
+    \frac{d(b_1 + b_2)}{dt} &= -(\Gamma /2) G_{12}(b_2 + b_1)\\
+    \frac{dx}{dt} &= -(\Gamma /2) G_{12}x\\
+    x(t) &= x(0)e^{-\Gamma /2 G_{12}t}
+    \end{alignat*}
+$$
+
+- For $y$:
+$$
+    \begin{alignat*}{4}
+    \frac{db_1}{dt} - \frac{db_2}{dt}&= -(\Gamma /2) G_{12}b_2 - -(\Gamma /2) G_{12}b_1\\
+    \frac{d(b_1 - b_2)}{dt} &= +(\Gamma /2) G_{12}(b_1 - b_2)\\
+    \frac{dy}{dt} &= +(\Gamma /2) G_{12}y\\
+    y(t) &= y(0)e^{\Gamma /2 G_{12}t}
+    \end{alignat*}
+$$
+
+We solved $x,y$, but I want $b_1, b_2$. The inverse operation is:
+
+$$
+    \begin{alignat*}{4}
+    x &= b_1 + b_2\\
+    y &= b_1 - b_2\\
+    x + y &= 2b_1\\
+    b_1 &= \frac{1}{2}x + y\\
+    \end{alignat*}
+$$
+
+Hence:
+
+$$
+    \begin{alignat*}{4}
+    b_1(t) &= \frac{1}{2}x + y\\
+    b_1(t) &= \frac{1}{2}[x(0)e^{-\Gamma /2 G_{12}t} +  y(0)e^{\Gamma /2 G_{12}t}]\\
+    b_1(t) &= \frac{1}{2}\{[b_1(0) + b_2(0)]e^{-\Gamma /2 G_{12}t} +  [b_1(0) - b_2(0)]e^{\Gamma /2 G_{12}t}\}\\
+    b_1(t) &= \frac{1}{2}[b_1(0)e^{-\Gamma /2 G_{12}t} + b_2(0)e^{-\Gamma /2 G_{12}t} +  b_1(0)e^{\Gamma /2 G_{12}t} - b_2(0)e^{\Gamma /2 G_{12}t}]\\
+    b_1(t) &= \frac{1}{2}[b_1(0)e^{-\Gamma /2 G_{12}t} +  b_1(0)e^{\Gamma /2 G_{12}t} + b_2(0)e^{-\Gamma /2 G_{12}t} - b_2(0)e^{\Gamma /2 G_{12}t}]\\
+    b_1(t) &= \frac{1}{2}\{b_1(0)[e^{-\Gamma /2 G_{12}t} +  e^{\Gamma /2 G_{12}t}] + b_2(0)[e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]\}\\
+    \end{alignat*}
+$$
+
+Now we use the formula for $b_j(0)$
+
+$$
+    \begin{multline*}
+    b_1(t) = \frac{1}{2}\kappa (\delta) E_0 \left [e^{i\mathbf{k}\cdot \mathbf{r}_1} +  \kappa (\delta) \sum_{m \ne 1}^N G(|\mathbf{r}_1-\mathbf{r}_m|) e^{i\mathbf{k}\cdot \mathbf{r}_1} \right ][e^{-\Gamma /2 G_{12}t} +  e^{\Gamma /2 G_{12}t}]  \\
+    + \frac{1}{2}\kappa (\delta) E_0 \left [e^{i\mathbf{k}\cdot \mathbf{r}_2} +  \kappa (\delta) \sum_{m \ne 2}^N G(|\mathbf{r}_2-\mathbf{r}_m|) e^{i\mathbf{k}\cdot \mathbf{r}_2} \right ][e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]
+    \end{multline*}
+$$
+
+::: callout-important
+
+In the manuscript there is a negative sign, "-", in from of second line, regarding the second atom. As I just proof, there is no negative sign in the intermediary steps
+
+How come up with the "-"?
+:::
+
+
+::: callout-important
+
+The sum $\sum_{m \ne 2}^N G(|\mathbf{r}_2-\mathbf{r}_m|) e^{i\mathbf{k}\cdot \mathbf{r}_2}$ for example has just a single term $G(|\mathbf{r}_2-\mathbf{r}_1|)e^{i\mathbf{k}\cdot \mathbf{r}_2}$, because $N=2$
+
+Why do we write the sumation?
+:::
+
+One last manipulation, to put single-atom and multi-atom term's together
+
+- Single-Atom Terms
+$$
+    \begin{multline*}
+     b_1(t)^{single-atom} = \frac{1}{2}\kappa (\delta) E_0 \times e^{i\mathbf{k}\cdot \mathbf{r}_1} \times [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}]\\
+     + \frac{1}{2}\kappa (\delta) E_0 \times e^{i\mathbf{k}\cdot \mathbf{r}_2} \times [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}]\\
+    \end{multline*}
+$$
+
+$$
+    \begin{multline*}
+     b_1(t)^{single-atom} = \frac{1}{2}\kappa (\delta) E_0 e^{i\mathbf{k}\cdot \mathbf{r}_1} e^{-\Gamma /2 G_{12}t} + \frac{1}{2}\kappa (\delta) E_0 e^{i\mathbf{k}\cdot \mathbf{r}_1}e^{\Gamma /2 G_{12}t}\\
+     + \frac{1}{2}\kappa (\delta) E_0 e^{i\mathbf{k}\cdot \mathbf{r}_2} e^{-\Gamma /2 G_{12}t} + \frac{1}{2}\kappa (\delta) E_0 e^{i\mathbf{k}\cdot \mathbf{r}_2}e^{\Gamma /2 G_{12}t}\\
+    \end{multline*}
+$$
+
+$$
+    \begin{multline*}
+     b_1(t)^{single-atom} = \frac{1}{2}\kappa (\delta) E_0 (e^{i\mathbf{k}\cdot \mathbf{r}_1} - e^{i\mathbf{k}\cdot \mathbf{r}_2})e^{\Gamma /2 G_{12}t}+  \frac{1}{2}\kappa (\delta) E_0 (e^{i\mathbf{k}\cdot \mathbf{r}_1} + e^{i\mathbf{k}\cdot \mathbf{r}_2})e^{-\Gamma /2 G_{12}t}
+    \end{multline*}
+$$
+
+- Two-Atom Terms
+
+This time, we don't want to expand the terms.
+
+::: callout-note
+
+I'm writng the single term of the sum, $G_{12}$, because I want to discover how far I can go.
+:::
+$$
+    \begin{multline*}
+     b_1(t)^{two-atom} = \frac{1}{2}\kappa (\delta) E_0 \times \kappa (\delta) G_{12} e^{i\mathbf{k}\cdot \mathbf{r}_1} \times [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}]\\
+     +\frac{1}{2}\kappa (\delta) E_0 \times \kappa (\delta) G_{12} e^{i\mathbf{k}\cdot \mathbf{r}_2} \times [e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]
+    \end{multline*}
+$$
+
+$$
+    \begin{multline*}
+     b_1(t)^{two-atom} = \frac{1}{2}\kappa (\delta)^2 E_0 G_{12} \{ e^{i\mathbf{k}\cdot \mathbf{r}_1} [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}] + e^{i\mathbf{k}\cdot \mathbf{r}_2} [e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]\}
+    \end{multline*}
+$$
+
+Final expression is:
+
+$$
+    \begin{multline*}
+     b_1(t) = \frac{1}{2}\kappa (\delta) E_0 (e^{i\mathbf{k}\cdot \mathbf{r}_1} - e^{i\mathbf{k}\cdot \mathbf{r}_2})e^{\Gamma /2 G_{12}t}+  \frac{1}{2}\kappa (\delta) E_0 (e^{i\mathbf{k}\cdot \mathbf{r}_1} + e^{i\mathbf{k}\cdot \mathbf{r}_2})e^{-\Gamma /2 G_{12}t}\\
+     + \frac{1}{2}\kappa (\delta)^2 E_0 G_{12} \{ e^{i\mathbf{k}\cdot \mathbf{r}_1} [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}] + e^{i\mathbf{k}\cdot \mathbf{r}_2} [e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]\}
+    \end{multline*}
+$$

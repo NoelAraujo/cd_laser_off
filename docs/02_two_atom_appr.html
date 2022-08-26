@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Subradiant CBS - 1&nbsp; General Expressions</title>
+<title>Subradiant CBS - 2&nbsp; Two-Atom Approximation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -49,8 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02_two_atom_appr.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./01_double_scattering.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -90,7 +71,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">General Expressions</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Two-Atom Approximation</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -120,12 +101,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_double_scattering.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">General Expressions</span></a>
+  <a href="./01_double_scattering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">General Expressions</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_two_atom_appr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Two-Atom Approximation</span></a>
+  <a href="./02_two_atom_appr.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Two-Atom Approximation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -138,22 +119,14 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#scattered-field" id="toc-scattered-field" class="nav-link active" data-scroll-target="#scattered-field"> <span class="header-section-number">1.1</span> Scattered Field</a></li>
-  <li><a href="#dynamics" id="toc-dynamics" class="nav-link" data-scroll-target="#dynamics"> <span class="header-section-number">1.2</span> Dynamics</a></li>
-  <li><a href="#intensity" id="toc-intensity" class="nav-link" data-scroll-target="#intensity"> <span class="header-section-number">1.3</span> Intensity</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">General Expressions</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Two-Atom Approximation</span></h1>
 </div>
 
 
@@ -167,78 +140,156 @@ div.csl-indent {
 
 </header>
 
-<p>We will follow <span class="citation" data-cites="Rouabah:14">Rouabah et al. (<a href="references.html#ref-Rouabah:14" role="doc-biblioref">2014</a>)</span>, but our analysis will be limited only for the <strong>Scalar Model</strong>.</p>
-<section id="scattered-field" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="scattered-field"><span class="header-section-number">1.1</span> Scattered Field</h2>
-<p>Given an essemble of atoms at positions <span class="math inline">\(\textbf{r}_j\)</span>, the radiation field, <span class="math inline">\(E(\mathbf{r})\)</span>, measured at distance <span class="math inline">\(\mathbf{r}\)</span> is</p>
+<p>We consider only atoms <span class="math inline">\(\mathbf{r}_1, \mathbf{r}_2\)</span>, and our first goal is to compute the time evolution of the system.</p>
 <p><span class="math display">\[
-    E(\mathbf{r}) = -i\frac{ħ \Gamma}{2d}\sum_{j=1}^N G(|\mathbf{r}-\mathbf{r}_j|)\tilde{\beta}_j
+    \begin{alignat*}{4}
+    \frac{db_1}{dt}&amp;= -(\Gamma /2) G_{12}b_2\\
+    \frac{db_2}{dt}&amp;= -(\Gamma /2) G_{21}b_2\\
+    \end{alignat*}
 \]</span></p>
-<p>We also assume multiple-scattering events, that is, the excitation <span class="math inline">\(\tilde{\beta}_j\)</span> is a result of excitation of all other atoms, in addition to a pumped constant inicident field <span class="math inline">\(E_{in}(\mathbf{r})\)</span>, creating a recursive expression:</p>
+<p>To solve the system we do a varible substitution:</p>
 <p><span class="math display">\[
-E(\mathbf{r}) = \kappa (\delta) \sum_{j=1}^N G(|\mathbf{r}-\mathbf{r}_j|)\left [ E_{in}(\mathbf{r}) +  \kappa (\delta) \sum_{j=1}^N G(|\mathbf{r}-\mathbf{r}_j|) E_{in}(\mathbf{r}_m) \right ]
+    \begin{alignat*}{4}
+    x &amp;= b_1 + b_2\\
+    y &amp;= b_1 - b_2\\
+    \end{alignat*}
 \]</span></p>
-<p>where <span class="math inline">\(\kappa (\delta) = 1/(2i\delta - 1)\)</span> and <span class="math inline">\(\delta = \Delta/\Gamma\)</span>. The term in brakets we will be</p>
-<p><span class="math display">\[
-    \tilde{\beta}_j = \frac{2d}{ħ \Gamma}\kappa (\delta) \left [ E_{in}(\mathbf{r}) +  \kappa (\delta) \sum_{j=1}^N G(|\mathbf{r}-\mathbf{r}_j|) E_{in}(\mathbf{r}_m) \right ]
-\]</span></p>
-<p>The constants will play a role later to simplify further expressions</p>
-<p><strong>The notation and its meaning, are not clear ye (?)t</strong>.</p>
-</section>
-<section id="dynamics" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="dynamics"><span class="header-section-number">1.2</span> Dynamics</h2>
-<p>The scattering over time results from obtain <span class="math inline">\(\beta_j(t)\)</span></p>
-<p><span class="math display">\[
-E(\mathbf{r}, t) = -\frac{\hbar \Gamma}{2d}\sum_{j=1}^N G(|\mathbf{r} -  \mathbf{r}_m|)\beta_j(t)
-\]</span></p>
-<p>We get the <span class="math inline">\(\beta_j(t)\)</span> with the Coupled Dipole time evolution WITHOUT LASER (?):</p>
-<p><span class="math display">\[
-\frac{d\beta_j}{dt} = (i\Delta-\Gamma/2)\beta_j  - (\Gamma/2)\sum_{m \ne j} G(|\mathbf{r}_j -  \mathbf{r}_m|)\beta_m
-\]</span></p>
-<p>Since this equation is linear, its solution is an exponential of form:</p>
-<p><span class="math display">\[
-\beta_j(t) = i\frac{2d}{\hbar \Gamma}b_j(t)e^{(i\Delta-\Gamma/2)t}
-\]</span></p>
-<p>This formula allows us to simplify our problem, and solving <span class="math inline">\(b_j(t)\)</span> means:</p>
-<p><span class="math display">\[
-\frac{d b_j}{dt} = - (\Gamma/2)\sum_{m \ne j} G(|\mathbf{r}_j -  \mathbf{r}_m|)b_m
-\]</span></p>
-<p>Putting everything together, the scattering becomes:</p>
-<p><span class="math display">\[
-E(\mathbf{r}, t) = e^{(i\Delta-\Gamma/2)t}\sum_{j=1}^N G(|\mathbf{r} -  \mathbf{r}_m|)b_j(t)
-\]</span></p>
-<p>with</p>
-<p><span class="math display">\[
-    b_0 = \kappa (\delta) \left [ E_{in}(\mathbf{r}) +  \kappa (\delta) \sum_{j=1}^N G(|\mathbf{r}_j-\mathbf{r}_m|) E_{in}(\mathbf{r}_m) \right ]
-\]</span></p>
-</section>
-<section id="intensity" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="intensity"><span class="header-section-number">1.3</span> Intensity</h2>
-<p>To keep analytical tretament, we need to define <span class="math inline">\(E_{in}(\mathbf{r})\)</span> and <span class="math inline">\(G(|\mathbf{r}-\mathbf{r}_j|)\)</span>, for convenience, we take</p>
+<p>and using the fact that <span class="math inline">\(G_{12} = G_{21}\)</span>, we begin our manipulation:</p>
 <ul>
-<li><span class="math inline">\(E_{in}(\mathbf{r}) = E_0 exp(i \mathbf{k_0} \cdot \mathbf{r})\)</span></li>
-<li><span class="math inline">\(G(|\mathbf{r}-\mathbf{r}_j|) \approx exp(ikr - i \mathbf{k}\cdot \mathbf{r}_j)/(ikr)\)</span></li>
+<li>For <span class="math inline">\(x\)</span>:</li>
 </ul>
 <p><span class="math display">\[
-E(\mathbf{r}, t) = \frac{e^{ikr + i\Delta t - \Gamma t/2}}{ikr}\sum_{j=1}^N e^{-i\mathbf{k}\cdot \mathbf{r}_j}b_j(t)
+    \begin{alignat*}{4}
+    \frac{db_1}{dt} + \frac{db_2}{dt}&amp;= -(\Gamma /2) G_{12}b_2 + -(\Gamma /2) G_{12}b_1\\
+    \frac{d(b_1 + b_2)}{dt} &amp;= -(\Gamma /2) G_{12}(b_2 + b_1)\\
+    \frac{dx}{dt} &amp;= -(\Gamma /2) G_{12}x\\
+    x(t) &amp;= x(0)e^{-\Gamma /2 G_{12}t}
+    \end{alignat*}
 \]</span></p>
-<p><span class="math inline">\(\mathbf{k} = r\hat{r}\)</span></p>
-<p>with</p>
+<ul>
+<li>For <span class="math inline">\(y\)</span>:</li>
+</ul>
 <p><span class="math display">\[
-    b_0 = \kappa (\delta) E_0 \left [e^{i\mathbf{k}\cdot \mathbf{r}_j} +  \kappa (\delta) \sum_{j=1}^N G(|\mathbf{r}_j-\mathbf{r}_m|) e^{i\mathbf{k}\cdot \mathbf{r}_m} \right ]
+    \begin{alignat*}{4}
+    \frac{db_1}{dt} - \frac{db_2}{dt}&amp;= -(\Gamma /2) G_{12}b_2 - -(\Gamma /2) G_{12}b_1\\
+    \frac{d(b_1 - b_2)}{dt} &amp;= +(\Gamma /2) G_{12}(b_1 - b_2)\\
+    \frac{dy}{dt} &amp;= +(\Gamma /2) G_{12}y\\
+    y(t) &amp;= y(0)e^{\Gamma /2 G_{12}t}
+    \end{alignat*}
 \]</span></p>
-<p>The scattered intensity is</p>
+<p>We solved <span class="math inline">\(x,y\)</span>, but I want <span class="math inline">\(b_1, b_2\)</span>. The inverse operation is:</p>
 <p><span class="math display">\[
-I(\mathbf{k}, t) = \frac{1}{(kr)^2}e^{-\Gamma t} \left |  \sum_{j=1}^N e^{-i \mathbf{k}\cdot \mathbf{r}_j} b_j(t)\right |^2
+    \begin{alignat*}{4}
+    x &amp;= b_1 + b_2\\
+    y &amp;= b_1 - b_2\\
+    x + y &amp;= 2b_1\\
+    b_1 &amp;= \frac{1}{2}x + y\\
+    \end{alignat*}
+\]</span></p>
+<p>Hence:</p>
+<p><span class="math display">\[
+    \begin{alignat*}{4}
+    b_1(t) &amp;= \frac{1}{2}x + y\\
+    b_1(t) &amp;= \frac{1}{2}[x(0)e^{-\Gamma /2 G_{12}t} +  y(0)e^{\Gamma /2 G_{12}t}]\\
+    b_1(t) &amp;= \frac{1}{2}\{[b_1(0) + b_2(0)]e^{-\Gamma /2 G_{12}t} +  [b_1(0) - b_2(0)]e^{\Gamma /2 G_{12}t}\}\\
+    b_1(t) &amp;= \frac{1}{2}[b_1(0)e^{-\Gamma /2 G_{12}t} + b_2(0)e^{-\Gamma /2 G_{12}t} +  b_1(0)e^{\Gamma /2 G_{12}t} - b_2(0)e^{\Gamma /2 G_{12}t}]\\
+    b_1(t) &amp;= \frac{1}{2}[b_1(0)e^{-\Gamma /2 G_{12}t} +  b_1(0)e^{\Gamma /2 G_{12}t} + b_2(0)e^{-\Gamma /2 G_{12}t} - b_2(0)e^{\Gamma /2 G_{12}t}]\\
+    b_1(t) &amp;= \frac{1}{2}\{b_1(0)[e^{-\Gamma /2 G_{12}t} +  e^{\Gamma /2 G_{12}t}] + b_2(0)[e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]\}\\
+    \end{alignat*}
+\]</span></p>
+<p>Now we use the formula for <span class="math inline">\(b_j(0)\)</span></p>
+<p><span class="math display">\[
+    \begin{multline*}
+    b_1(t) = \frac{1}{2}\kappa (\delta) E_0 \left [e^{i\mathbf{k}\cdot \mathbf{r}_1} +  \kappa (\delta) \sum_{m \ne 1}^N G(|\mathbf{r}_1-\mathbf{r}_m|) e^{i\mathbf{k}\cdot \mathbf{r}_1} \right ][e^{-\Gamma /2 G_{12}t} +  e^{\Gamma /2 G_{12}t}]  \\
+    + \frac{1}{2}\kappa (\delta) E_0 \left [e^{i\mathbf{k}\cdot \mathbf{r}_2} +  \kappa (\delta) \sum_{m \ne 2}^N G(|\mathbf{r}_2-\mathbf{r}_m|) e^{i\mathbf{k}\cdot \mathbf{r}_2} \right ][e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]
+    \end{multline*}
+\]</span></p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the manuscript there is a negative sign, “-”, in from of second line, regarding the second atom. As I just proof, there is no negative sign in the intermediary steps</p>
+<p>How come up with the “-”?</p>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The sum <span class="math inline">\(\sum_{m \ne 2}^N G(|\mathbf{r}_2-\mathbf{r}_m|) e^{i\mathbf{k}\cdot \mathbf{r}_2}\)</span> for example has just a single term <span class="math inline">\(G(|\mathbf{r}_2-\mathbf{r}_1|)e^{i\mathbf{k}\cdot \mathbf{r}_2}\)</span>, because <span class="math inline">\(N=2\)</span></p>
+<p>Why do we write the sumation?</p>
+</div>
+</div>
+<p>One last manipulation, to put single-atom and multi-atom term’s together</p>
+<ul>
+<li>Single-Atom Terms</li>
+</ul>
+<p><span class="math display">\[
+    \begin{multline*}
+     b_1(t)^{single-atom} = \frac{1}{2}\kappa (\delta) E_0 \times e^{i\mathbf{k}\cdot \mathbf{r}_1} \times [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}]\\
+     + \frac{1}{2}\kappa (\delta) E_0 \times e^{i\mathbf{k}\cdot \mathbf{r}_2} \times [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}]\\
+    \end{multline*}
+\]</span></p>
+<p><span class="math display">\[
+    \begin{multline*}
+     b_1(t)^{single-atom} = \frac{1}{2}\kappa (\delta) E_0 e^{i\mathbf{k}\cdot \mathbf{r}_1} e^{-\Gamma /2 G_{12}t} + \frac{1}{2}\kappa (\delta) E_0 e^{i\mathbf{k}\cdot \mathbf{r}_1}e^{\Gamma /2 G_{12}t}\\
+     + \frac{1}{2}\kappa (\delta) E_0 e^{i\mathbf{k}\cdot \mathbf{r}_2} e^{-\Gamma /2 G_{12}t} + \frac{1}{2}\kappa (\delta) E_0 e^{i\mathbf{k}\cdot \mathbf{r}_2}e^{\Gamma /2 G_{12}t}\\
+    \end{multline*}
+\]</span></p>
+<p><span class="math display">\[
+    \begin{multline*}
+     b_1(t)^{single-atom} = \frac{1}{2}\kappa (\delta) E_0 (e^{i\mathbf{k}\cdot \mathbf{r}_1} - e^{i\mathbf{k}\cdot \mathbf{r}_2})e^{\Gamma /2 G_{12}t}+  \frac{1}{2}\kappa (\delta) E_0 (e^{i\mathbf{k}\cdot \mathbf{r}_1} + e^{i\mathbf{k}\cdot \mathbf{r}_2})e^{-\Gamma /2 G_{12}t}
+    \end{multline*}
+\]</span></p>
+<ul>
+<li>Two-Atom Terms</li>
+</ul>
+<p>This time, we don’t want to expand the terms.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I’m writng the single term of the sum, <span class="math inline">\(G_{12}\)</span>, because I want to discover how far I can go.</p>
+</div>
+</div>
+<p><span class="math display">\[
+    \begin{multline*}
+     b_1(t)^{two-atom} = \frac{1}{2}\kappa (\delta) E_0 \times \kappa (\delta) G_{12} e^{i\mathbf{k}\cdot \mathbf{r}_1} \times [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}]\\
+     +\frac{1}{2}\kappa (\delta) E_0 \times \kappa (\delta) G_{12} e^{i\mathbf{k}\cdot \mathbf{r}_2} \times [e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]
+    \end{multline*}
+\]</span></p>
+<p><span class="math display">\[
+    \begin{multline*}
+     b_1(t)^{two-atom} = \frac{1}{2}\kappa (\delta)^2 E_0 G_{12} \{ e^{i\mathbf{k}\cdot \mathbf{r}_1} [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}] + e^{i\mathbf{k}\cdot \mathbf{r}_2} [e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]\}
+    \end{multline*}
+\]</span></p>
+<p>Final expression is:</p>
+<p><span class="math display">\[
+    \begin{multline*}
+     b_1(t) = \frac{1}{2}\kappa (\delta) E_0 (e^{i\mathbf{k}\cdot \mathbf{r}_1} - e^{i\mathbf{k}\cdot \mathbf{r}_2})e^{\Gamma /2 G_{12}t}+  \frac{1}{2}\kappa (\delta) E_0 (e^{i\mathbf{k}\cdot \mathbf{r}_1} + e^{i\mathbf{k}\cdot \mathbf{r}_2})e^{-\Gamma /2 G_{12}t}\\
+     + \frac{1}{2}\kappa (\delta)^2 E_0 G_{12} \{ e^{i\mathbf{k}\cdot \mathbf{r}_1} [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}] + e^{i\mathbf{k}\cdot \mathbf{r}_2} [e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]\}
+    \end{multline*}
 \]</span></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-Rouabah:14" class="csl-entry" role="doc-biblioentry">
-Rouabah, Mohamed-Taha, Marina Samoylova, Romain Bachelard, Philippe W. Courteille, Robin Kaiser, and Nicola Piovella. 2014. <span>“Coherence Effects in Scattering Order Expansion of Light by Atomic Clouds.”</span> <em>J. Opt. Soc. Am. A</em> 31 (5): 1031–39. <a href="https://doi.org/10.1364/JOSAA.31.001031">https://doi.org/10.1364/JOSAA.31.001031</a>.
-</div>
-</div>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -341,13 +392,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Goal</span>
+      <a href="./01_double_scattering.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">General Expressions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02_two_atom_appr.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Two-Atom Approximation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

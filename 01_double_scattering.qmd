@@ -2,10 +2,91 @@
 
 We will follow @Rouabah:14, but our analysis will be limited only for the **Scalar Model**.
 
-Given an essemble of atoms at position $\textbf{r}_j$, pumped by a constant inicident field $E_{in}(\mathbf{r})$, the radiation field, $E(\mathbf{r})$, measured at distance $\mathbf{r}$ is
+## Scattered Field
+
+Given an essemble of atoms at positions $\textbf{r}_j$, the radiation field, $E(\mathbf{r})$, measured at distance $\mathbf{r}$ is
+
+$$
+    E(\mathbf{r}) = -i\frac{ħ \Gamma}{2d}\sum_{j=1}^N G(|\mathbf{r}-\mathbf{r}_j|)\tilde{\beta}_j
+$$
+
+
+We also assume  multiple-scattering events, that is, the excitation $\tilde{\beta}_j$  is a result of excitation of all other atoms, in addition to a pumped constant inicident field $E_{in}(\mathbf{r})$, creating a recursive expression:
 
 $$
 E(\mathbf{r}) = \kappa (\delta) \sum_{j=1}^N G(|\mathbf{r}-\mathbf{r}_j|)\left [ E_{in}(\mathbf{r}) +  \kappa (\delta) \sum_{j=1}^N G(|\mathbf{r}-\mathbf{r}_j|) E_{in}(\mathbf{r}_m) \right ]
 $$
 
-where $\kappa (\delta) = 1/(2i\delta - 1)$ and $\delta = \Delta/\Gamma$. This equation is recursive because we are working with multiple-scattering events.
+where $\kappa (\delta) = 1/(2i\delta - 1)$ and $\delta = \Delta/\Gamma$. The term in brakets we will be
+
+$$
+    \tilde{\beta}_j = \frac{2d}{ħ \Gamma}\kappa (\delta) \left [ E_{in}(\mathbf{r}) +  \kappa (\delta) \sum_{j=1}^N G(|\mathbf{r}-\mathbf{r}_j|) E_{in}(\mathbf{r}_m) \right ]
+$$
+
+The constants will play a role later to simplify further expressions
+
+**The notation and its meaning, are not clear ye (?)t**.
+
+## Dynamics
+
+The scattering over time results from obtain $\beta_j(t)$
+
+$$
+E(\mathbf{r}, t) = -\frac{\hbar \Gamma}{2d}\sum_{j=1}^N G(|\mathbf{r} -  \mathbf{r}_m|)\beta_j(t)
+$$
+
+
+
+We get the $\beta_j(t)$ with the Coupled Dipole time evolution WITHOUT LASER (?):
+$$
+\frac{d\beta_j}{dt} = (i\Delta-\Gamma/2)\beta_j  - (\Gamma/2)\sum_{m \ne j} G(|\mathbf{r}_j -  \mathbf{r}_m|)\beta_m
+$$
+
+Since this equation is linear, its solution is an exponential of form:
+
+$$
+\beta_j(t) = i\frac{2d}{\hbar \Gamma}b_j(t)e^{(i\Delta-\Gamma/2)t}
+$$
+
+This formula allows us to simplify our problem, and solving $b_j(t)$ means:
+
+$$
+\frac{d b_j}{dt} = - (\Gamma/2)\sum_{m \ne j} G(|\mathbf{r}_j -  \mathbf{r}_m|)b_m
+$$
+
+
+Putting everything together, the scattering becomes:
+
+$$
+E(\mathbf{r}, t) = e^{(i\Delta-\Gamma/2)t}\sum_{j=1}^N G(|\mathbf{r} -  \mathbf{r}_m|)b_j(t)
+$$
+
+with
+
+$$
+    b_0 = \kappa (\delta) \left [ E_{in}(\mathbf{r}) +  \kappa (\delta) \sum_{j=1}^N G(|\mathbf{r}_j-\mathbf{r}_m|) E_{in}(\mathbf{r}_m) \right ]
+$$
+
+## Intensity
+
+To keep analytical tretament, we need to define $E_{in}(\mathbf{r})$ and $G(|\mathbf{r}-\mathbf{r}_j|)$, for convenience, we take
+
+- $E_{in}(\mathbf{r}) = E_0 exp(i \mathbf{k_0} \cdot \mathbf{r})$
+- $G(|\mathbf{r}-\mathbf{r}_j|) \approx exp(ikr - i \mathbf{k}\cdot \mathbf{r}_j)/(ikr)$
+
+$$
+E(\mathbf{r}, t) = \frac{e^{ikr + i\Delta t - \Gamma t/2}}{ikr}\sum_{j=1}^N e^{-i\mathbf{k}\cdot \mathbf{r}_j}b_j(t)
+$$
+
+$\mathbf{k} = r\hat{r}$
+
+with
+$$
+    b_0 = \kappa (\delta) E_0 \left [e^{i\mathbf{k}\cdot \mathbf{r}_j} +  \kappa (\delta) \sum_{j=1}^N G(|\mathbf{r}_j-\mathbf{r}_m|) e^{i\mathbf{k}\cdot \mathbf{r}_m} \right ]
+$$
+
+The scattered intensity is
+
+$$
+I(\mathbf{k}, t) = \frac{1}{(kr)^2}e^{-\Gamma t} \left |  \sum_{j=1}^N e^{-i \mathbf{k}\cdot \mathbf{r}_j} b_j(t)\right |^2
+$$

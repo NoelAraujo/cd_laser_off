@@ -9,7 +9,7 @@ book:
   chapters:
     - index.qmd
     - 01_double_scattering.qmd
-    # - summary.qmd
+    - 02_two_atom_appr.qmd
     - references.qmd
 
 bibliography: references.bib
