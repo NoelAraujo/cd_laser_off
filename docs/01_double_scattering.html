@@ -145,6 +145,7 @@ div.csl-indent {
   <li><a href="#scattered-field" id="toc-scattered-field" class="nav-link active" data-scroll-target="#scattered-field"> <span class="header-section-number">1.1</span> Scattered Field</a></li>
   <li><a href="#dynamics" id="toc-dynamics" class="nav-link" data-scroll-target="#dynamics"> <span class="header-section-number">1.2</span> Dynamics</a></li>
   <li><a href="#intensity" id="toc-intensity" class="nav-link" data-scroll-target="#intensity"> <span class="header-section-number">1.3</span> Intensity</a></li>
+  <li><a href="#expanding-the-intensity" id="toc-expanding-the-intensity" class="nav-link" data-scroll-target="#expanding-the-intensity"> <span class="header-section-number">1.4</span> Expanding the Intensity</a></li>
   </ul>
 </nav>
     </div>
@@ -230,6 +231,23 @@ E(\mathbf{r}, t) = \frac{e^{ikr + i\Delta t - \Gamma t/2}}{ikr}\sum_{j=1}^N e^{-
 <p>The scattered intensity is</p>
 <p><span class="math display">\[
 I(\mathbf{k}, t) = \frac{1}{(kr)^2}e^{-\Gamma t} \left |  \sum_{j=1}^N e^{-i \mathbf{k}\cdot \mathbf{r}_j} b_j(t)\right |^2
+\]</span></p>
+</section>
+<section id="expanding-the-intensity" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="expanding-the-intensity"><span class="header-section-number">1.4</span> Expanding the Intensity</h2>
+<p>Suposse that <span class="math inline">\(N=2\)</span>, and expand the expression. We will see that it has a usefull pattern - I am want to write down an example for clarity purpose.</p>
+<p>We begin by noticing that the sum is a complex number, therefore its absolute value is <span class="math inline">\(|z|^2 = z \cdot z^*\)</span>. For two atoms one reads:</p>
+<p><span class="math display">\[
+\begin{alignat*}{4}
+I(\mathbf{k}, t) &amp;= \left |  e^{-i\mathbf{k}\cdot \mathbf{r}_1}b_1(t) + e^{-i\mathbf{k}\cdot \mathbf{r}_2}b_2(t) \right |^2\\
+&amp;= \left [  e^{-i\mathbf{k}\cdot \mathbf{r}_1}b_1(t) + e^{-i\mathbf{k}\cdot \mathbf{r}_2}b_2(t) \right ]\left [  e^{+i\mathbf{k}\cdot \mathbf{r}_1}b^*_1(t) + e^{+i\mathbf{k}\cdot \mathbf{r}_2}b^*_2(t) \right ]\\
+&amp;= b_1(t)b^*_1(t) + e^{-i\mathbf{k}\cdot \mathbf{r}_1}b_1(t)e^{+i\mathbf{k}\cdot \mathbf{r}_2}b^*_2+ e^{-i\mathbf{k}\cdot \mathbf{r}_2}b_2(t)e^{+i\mathbf{k}\cdot \mathbf{r}_1}b^*_1(t) + b_2(t)b^*_2(t)\\
+&amp;= |b_1(t)|^2 + |b_2(t)|^2 + b_1(t)b^*_2(t)e^{-i\mathbf{k}\cdot (\mathbf{r}_1 - \mathbf{r}_2)} +  b_2(t)b^*_1(t)e^{-i\mathbf{k}\cdot (\mathbf{r}_2 - \mathbf{r}_1)}\\
+\end{alignat*}
+\]</span></p>
+<p>In general, we can infer that:</p>
+<p><span class="math display">\[
+I(\mathbf{k}, t) = \frac{1}{(kr)^2}e^{-\Gamma t} \left [  \sum_{j=1}^N |b_j(t)|^2 + \sum_{j \ne m}^N b_j(t)b_m^*(t)e^{-i\mathbf{k}\cdot (\mathbf{r}_j - \mathbf{r}_m)} \right ]
 \]</span></p>
 
 

@@ -68,8 +68,8 @@ Now we use the formula for $b_j(0)$
 
 $$
     \begin{multline*}
-    b_1(t) = \frac{1}{2}\kappa (\delta) E_0 \left [e^{i\mathbf{k}\cdot \mathbf{r}_1} +  \kappa (\delta) \sum_{m \ne 1}^N G(|\mathbf{r}_1-\mathbf{r}_m|) e^{i\mathbf{k}\cdot \mathbf{r}_1} \right ][e^{-\Gamma /2 G_{12}t} +  e^{\Gamma /2 G_{12}t}]  \\
-    + \frac{1}{2}\kappa (\delta) E_0 \left [e^{i\mathbf{k}\cdot \mathbf{r}_2} +  \kappa (\delta) \sum_{m \ne 2}^N G(|\mathbf{r}_2-\mathbf{r}_m|) e^{i\mathbf{k}\cdot \mathbf{r}_2} \right ][e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]
+    b_1(t) = \frac{1}{2}\kappa (\delta) E_0 \left [e^{i\mathbf{k}\cdot \mathbf{r}_1} +  \kappa (\delta) \sum_{m \ne 1}^N G(|\mathbf{r}_1-\mathbf{r}_m|) e^{i\mathbf{k}\cdot \mathbf{r}_m} \right ][e^{-\Gamma /2 G_{12}t} +  e^{\Gamma /2 G_{12}t}]  \\
+    + \frac{1}{2}\kappa (\delta) E_0 \left [e^{i\mathbf{k}\cdot \mathbf{r}_2} +  \kappa (\delta) \sum_{m \ne 2}^N G(|\mathbf{r}_2-\mathbf{r}_m|) e^{i\mathbf{k}\cdot \mathbf{r}_m} \right ][e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]
     \end{multline*}
 $$
 
@@ -83,7 +83,7 @@ How come up with the "-"?
 
 ::: callout-important
 
-The sum $\sum_{m \ne 2}^N G(|\mathbf{r}_2-\mathbf{r}_m|) e^{i\mathbf{k}\cdot \mathbf{r}_2}$ for example has just a single term $G(|\mathbf{r}_2-\mathbf{r}_1|)e^{i\mathbf{k}\cdot \mathbf{r}_2}$, because $N=2$
+The sum $\sum_{m \ne 2}^N G(|\mathbf{r}_2-\mathbf{r}_m|) e^{i\mathbf{k}\cdot \mathbf{r}_m}$ for example has just a single term $G(|\mathbf{r}_2-\mathbf{r}_1|)e^{i\mathbf{k}\cdot \mathbf{r}_1}$, because $N=2$
 
 Why do we write the sumation?
 :::
@@ -121,14 +121,14 @@ I'm writng the single term of the sum, $G_{12}$, because I want to discover how 
 :::
 $$
     \begin{multline*}
-     b_1(t)^{two-atom} = \frac{1}{2}\kappa (\delta) E_0 \times \kappa (\delta) G_{12} e^{i\mathbf{k}\cdot \mathbf{r}_1} \times [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}]\\
-     +\frac{1}{2}\kappa (\delta) E_0 \times \kappa (\delta) G_{12} e^{i\mathbf{k}\cdot \mathbf{r}_2} \times [e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]
+     b_1(t)^{two-atom} = \frac{1}{2}\kappa (\delta) E_0 \times \kappa (\delta) G_{12} e^{i\mathbf{k}\cdot \mathbf{r}_2} \times [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}]\\
+     +\frac{1}{2}\kappa (\delta) E_0 \times \kappa (\delta) G_{12} e^{i\mathbf{k}\cdot \mathbf{r}_1} \times [e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]
     \end{multline*}
 $$
 
 $$
     \begin{multline*}
-     b_1(t)^{two-atom} = \frac{1}{2}\kappa (\delta)^2 E_0 G_{12} \{ e^{i\mathbf{k}\cdot \mathbf{r}_1} [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}] + e^{i\mathbf{k}\cdot \mathbf{r}_2} [e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]\}
+     b_1(t)^{two-atom} = \frac{1}{2}\kappa (\delta)^2 E_0 G_{12} \{ e^{i\mathbf{k}\cdot \mathbf{r}_2} [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}] + e^{i\mathbf{k}\cdot \mathbf{r}_1} [e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]\}
     \end{multline*}
 $$
 
@@ -137,6 +137,6 @@ Final expression is:
 $$
     \begin{multline*}
      b_1(t) = \frac{1}{2}\kappa (\delta) E_0 (e^{i\mathbf{k}\cdot \mathbf{r}_1} - e^{i\mathbf{k}\cdot \mathbf{r}_2})e^{\Gamma /2 G_{12}t}+  \frac{1}{2}\kappa (\delta) E_0 (e^{i\mathbf{k}\cdot \mathbf{r}_1} + e^{i\mathbf{k}\cdot \mathbf{r}_2})e^{-\Gamma /2 G_{12}t}\\
-     + \frac{1}{2}\kappa (\delta)^2 E_0 G_{12} \{ e^{i\mathbf{k}\cdot \mathbf{r}_1} [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}] + e^{i\mathbf{k}\cdot \mathbf{r}_2} [e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]\}
+     + \frac{1}{2}\kappa (\delta)^2 E_0 G_{12} \{ e^{i\mathbf{k}\cdot \mathbf{r}_2} [e^{-\Gamma /2 G_{12}t} + e^{\Gamma /2 G_{12}t}] + e^{i\mathbf{k}\cdot \mathbf{r}_1} [e^{-\Gamma /2 G_{12}t} - e^{\Gamma /2 G_{12}t}]\}
     \end{multline*}
 $$

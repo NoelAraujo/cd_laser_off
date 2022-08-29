@@ -90,3 +90,22 @@ The scattered intensity is
 $$
 I(\mathbf{k}, t) = \frac{1}{(kr)^2}e^{-\Gamma t} \left |  \sum_{j=1}^N e^{-i \mathbf{k}\cdot \mathbf{r}_j} b_j(t)\right |^2
 $$
+
+## Expanding the Intensity
+Suposse that $N=2$, and expand the expression. We will see that it has a usefull pattern - I am want to write down an example for clarity purpose.
+
+We begin by noticing that the sum is a complex number, therefore its absolute value is $|z|^2 = z \cdot z^*$. For two atoms one reads:
+
+$$
+\begin{alignat*}{4}
+I(\mathbf{k}, t) &= \left |  e^{-i\mathbf{k}\cdot \mathbf{r}_1}b_1(t) + e^{-i\mathbf{k}\cdot \mathbf{r}_2}b_2(t) \right |^2\\
+&= \left [  e^{-i\mathbf{k}\cdot \mathbf{r}_1}b_1(t) + e^{-i\mathbf{k}\cdot \mathbf{r}_2}b_2(t) \right ]\left [  e^{+i\mathbf{k}\cdot \mathbf{r}_1}b^*_1(t) + e^{+i\mathbf{k}\cdot \mathbf{r}_2}b^*_2(t) \right ]\\
+&= b_1(t)b^*_1(t) + e^{-i\mathbf{k}\cdot \mathbf{r}_1}b_1(t)e^{+i\mathbf{k}\cdot \mathbf{r}_2}b^*_2+ e^{-i\mathbf{k}\cdot \mathbf{r}_2}b_2(t)e^{+i\mathbf{k}\cdot \mathbf{r}_1}b^*_1(t) + b_2(t)b^*_2(t)\\
+&= |b_1(t)|^2 + |b_2(t)|^2 + b_1(t)b^*_2(t)e^{-i\mathbf{k}\cdot (\mathbf{r}_1 - \mathbf{r}_2)} +  b_2(t)b^*_1(t)e^{-i\mathbf{k}\cdot (\mathbf{r}_2 - \mathbf{r}_1)}\\
+\end{alignat*}
+$$
+
+In general, we can infer that:
+$$
+I(\mathbf{k}, t) = \frac{1}{(kr)^2}e^{-\Gamma t} \left [  \sum_{j=1}^N |b_j(t)|^2 + \sum_{j \ne m}^N b_j(t)b_m^*(t)e^{-i\mathbf{k}\cdot (\mathbf{r}_j - \mathbf{r}_m)} \right ]
+$$
